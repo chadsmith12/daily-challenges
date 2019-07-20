@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="tests\obj\Debug\netcoreapp2.2\tests.assets.cache" />
+    <None Remove="tests\obj\project.assets.json" />
+    <None Remove="tests\obj\tests.csproj.nuget.cache" />
+    <None Remove="tests\obj\tests.csproj.nuget.g.props" />
+    <None Remove="tests\obj\tests.csproj.nuget.g.targets" />
+    <None Remove="tests\obj\Debug\netcoreapp2.2\tests.csprojAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="tests\UnitTest1.cs" />
+  </ItemGroup>
+</Project>

@@ -3,6 +3,6 @@ This is an attempt to solve the Daily Challenges that are posted on dev.to that 
 The series of challenges start from [here](https://dev.to/thepracticaldev/daily-challenge-1-string-peeler-4nep).
 
 ## How the challenges are broken up
-Every challenge will have their own directory and individual README that explains what each challenge is about, what the challenge specifically is, example input and output, and a link to the original posting.
+The challenges can/will be solved in different languages. Most challenges will at least be solved in C#. There will be a directory for each language, and each language will solve the challenges their own way.
 
-Each challenge could be solved in multiple languages and each language it is solved in will in their own directory in each individual challenge.
+Inside each language directory will be a README that explains how each challenge is solved in that language and instructions on how run the challenges for that language.
