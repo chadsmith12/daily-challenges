@@ -13,3 +13,6 @@ This is a class library that holds all the functions to the daily challenges.
 
 ### DailyChallenges.Tests
 This is an XUnit Test Project that provides the UnitTests for the solutions. It has a reference to the  `DailyChallengesLib`  project and will unit tests all the solutions.
+
+### Running Tests
+To run the tests to check all the solutions, just run `dotnet test` from the root solution directory.
