@@ -1,3 +1,6 @@
+# Current Build
+[![Build Status](https://dev.azure.com/smithchad12/daily-challenges/_apis/build/status/chadsmith12.daily-challenges?branchName=master)](https://dev.azure.com/smithchad12/daily-challenges/_build/latest?definitionId=3&branchName=master)
+
 # Daily Challenges
 This is an attempt to solve the Daily Challenges that are posted on dev.to that are from CodeWars. 
 The series of challenges start from [here](https://dev.to/thepracticaldev/daily-challenge-1-string-peeler-4nep).
