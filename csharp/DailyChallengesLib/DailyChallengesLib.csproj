@@ -9,5 +9,6 @@
     <Folder Include="VowelCounter\" />
     <Folder Include="Checkbook\" />
     <Folder Include="StringExtensions\" />
+    <Folder Include="Fibonacci\" />
   </ItemGroup>
 </Project>
