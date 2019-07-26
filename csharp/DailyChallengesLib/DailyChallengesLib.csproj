@@ -7,5 +7,7 @@
   <ItemGroup>
     <Folder Include="StringDiamond\" />
     <Folder Include="VowelCounter\" />
+    <Folder Include="Checkbook\" />
+    <Folder Include="StringExtensions\" />
   </ItemGroup>
 </Project>
