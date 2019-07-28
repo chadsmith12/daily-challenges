@@ -10,5 +10,7 @@
     <Folder Include="Checkbook\" />
     <Folder Include="StringExtensions\" />
     <Folder Include="Fibonacci\" />
+    <Folder Include="WalkGenerator\" />
+    <Folder Include="RandomExtensions\" />
   </ItemGroup>
 </Project>
