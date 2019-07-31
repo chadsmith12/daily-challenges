@@ -35,7 +35,7 @@ namespace DailyChallengesLib.StringDiamond
                  *      ***
                  *       *
                  */
-                var numberSpaces = Math.Abs(i - midPointIndex);
+                var numberSpaces = System.Math.Abs(i - midPointIndex);
                 var numberStars = number - numberSpaces * 2;
                 var spacesLine = BuildLine(' ', numberSpaces);
                 var starsLine = BuildLine('*', numberStars);

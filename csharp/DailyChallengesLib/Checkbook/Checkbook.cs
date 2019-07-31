@@ -71,12 +71,12 @@ namespace DailyChallengesLib.Checkbook
 
             foreach(var item in _items)
             {
-                var newBalance = Math.Round(_beginningBalance - item.Cost, 2);
+                var newBalance = System.Math.Round(_beginningBalance - item.Cost, 2);
                 reportBuilder.Append($"{item.CheckNumber} {item.Item} {newBalance}\n");
             }
 
-            reportBuilder.Append($"Total Expenses {Math.Round(TotalExpenses, 2)}\n");
-            reportBuilder.Append($"Average Expenses {Math.Round(TotalExpenses, 2)}");
+            reportBuilder.Append($"Total Expenses {System.Math.Round(TotalExpenses, 2)}\n");
+            reportBuilder.Append($"Average Expenses {System.Math.Round(TotalExpenses, 2)}");
 
             return reportBuilder.ToString();
         }

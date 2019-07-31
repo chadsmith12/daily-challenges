@@ -12,5 +12,6 @@
     <Folder Include="Fibonacci\" />
     <Folder Include="WalkGenerator\" />
     <Folder Include="RandomExtensions\" />
+    <Folder Include="Math\" />
   </ItemGroup>
 </Project>
