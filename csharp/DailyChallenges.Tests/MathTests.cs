@@ -165,6 +165,101 @@ namespace DailyChallenges.Tests
             Assert.Equal(expectedDenominator, result);
         }
 
+        [Fact]
+        public void SimplifiesFraction_Test()
+        {
+            var fraction = new Fraction(2, 4);
+            var expectedNumerator = 1;
+            var expectedDenominator = 2;
+
+            var result = fraction.Simplify();
+
+            Assert.Equal(expectedNumerator, result.Numerator);
+            Assert.Equal(expectedDenominator, result.Denominator);
+        }
+
+        [Fact]
+        public void ReturnsSameFractionIfAlreadySimplified_Test()
+        {
+            var fraction = new Fraction(1, 2);
+            var expectedNumerator = 1;
+            var expectedDenominator = 2;
+
+            var result = fraction.Simplify();
+
+            Assert.Equal(expectedNumerator, result.Numerator);
+            Assert.Equal(expectedDenominator, result.Denominator);
+        }
+
+        [Fact]
+        public void CalculatesGreatestCommonFactor_Test()
+        {
+            var a = 10;
+            var b = 5;
+            var expected = 5;
+
+            var result = Fraction.FindGreatestCommonFactor(a, b);
+
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void DifferentFractionsAreEqualToEachOther_Test()
+        {
+            var fraction1 = new Fraction(5, 10);
+            var fraction2 = new Fraction(1, 2);
+
+            var result = fraction1.Equals(fraction2);
+
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void DifferentFractionsAreNotEqualToEachOther_Test()
+        {
+            var fraction1 = new Fraction(5, 10);
+            var fraction2 = new Fraction(3, 4);
+
+            var result = fraction1.Equals(fraction2);
+
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void FractionsWithOverloadedEqualsOperatorEqualToEachOther_Test()
+        {
+            var fraction1 = new Fraction(5, 10);
+            var fraction2 = new Fraction(1, 2);
+
+            var result = fraction1 == fraction2;
+
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void CanMultiplyFractions_Test()
+        {
+            var fraction1 = new Fraction(1, 2);
+            var fraction2 = new Fraction(1, 2);
+            var expectedFraction = new Fraction(1, 4);
+
+            var result = fraction1 * fraction2;
+
+            Assert.Equal(expectedFraction, result);
+        }
+
+        [Fact]
+        public void CanMultiplyFractionsThenSimply_Test()
+        {
+            var fraction1 = new Fraction(1, 2);
+            var fraction2 = new Fraction(2, 3);
+            var expectedFraction = new Fraction(1, 3);
+
+            var result = (fraction1 * fraction2).Simplify();
+
+            Assert.Equal(expectedFraction, result);
+        }
+
         private int SumOfWholeNumbers(int index)
         {
             return index;

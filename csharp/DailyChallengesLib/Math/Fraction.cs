@@ -1,7 +1,7 @@
 ﻿using System;
 namespace DailyChallengesLib.Math
 {
-    public struct Fraction
+    public readonly struct Fraction : IEquatable<Fraction>
     {
         /// <summary>
         /// Initializes a new fraction with the numerator and denominator.
@@ -38,6 +38,17 @@ namespace DailyChallengesLib.Math
         public static Fraction operator -(Fraction a)
         {
             return new Fraction(-a.Numerator, a.Denominator);
+        }
+
+        /// <summary>
+        /// Multiples two fractions together.
+        /// </summary>
+        /// <param name="a">lhs of the operation.</param>
+        /// <param name="b">rhs of the operation.</param>
+        /// <returns>A new fraction, unsimnplified, of a*b</returns>
+        public static Fraction operator *(Fraction a, Fraction b)
+        {
+            return new Fraction(a.Numerator * b.Numerator, a.Denominator * b.Denominator);
         }
 
         /// <summary>
@@ -85,6 +96,30 @@ namespace DailyChallengesLib.Math
 
             return difference;
         }
+
+        /// <summary>
+        /// Overloads the == operator to check if two fractions are equal.
+        /// See <see cref="Equals(Fraction)"/> on if two fractions are equal to each other.
+        /// </summary>
+        /// <param name="a">Fraction on lhs.</param>
+        /// <param name="b">Fraction on rhs.</param>
+        /// <returns>True if the fractions are equal; otherwise, false.</returns>
+        public static bool operator ==(Fraction a, Fraction b)
+        {
+            return Equals(a, b);
+        }
+
+        /// <summary>
+        /// Overloads the != operator to check if the two fractions are not equal.
+        /// </summary>
+        /// <param name="a">Fraction on lhs.</param>
+        /// <param name="b">Fraction on rhs.</param>
+        /// <returns>True if the fractions are not equal; otherwise, false.</returns>
+        public static bool operator !=(Fraction a, Fraction b)
+        {
+            return !Equals(a, b);
+        }
+
         /// <summary>
         /// Returns a common denominator between two fractions.
         /// </summary>
@@ -94,6 +129,35 @@ namespace DailyChallengesLib.Math
         public static int FindCommonDenominator(Fraction a, Fraction b)
         {
             return a.Denominator * b.Denominator;
+        }
+
+        /// <summary>
+        /// Finds the greatest common factor between two numbers using Euclidean algorithm.
+        /// </summary>
+        /// <param name="a">Factor a.</param>
+        /// <param name="b">Factor b.</param>
+        /// <returns>The greatest common factor between two numbers.</returns>
+        public static int FindGreatestCommonFactor(int a, int b)
+        {
+            if (a < 0)
+                a = -a;
+            if (b < 0)
+                b = -b;
+
+            // while we we haven't reached zero yet.
+            while(a != 0 && b != 0)
+            {
+                if(a > b)
+                {
+                    a %= b;
+                }
+                else
+                {
+                    b %= a;
+                }
+            }
+
+            return a == 0 ? b : a;
         }
 
         /// <summary>
@@ -110,6 +174,24 @@ namespace DailyChallengesLib.Math
         /// The approximated value of a fraction as a decimal.
         /// </summary>
         public double ApproximatedValue => Numerator / Denominator;
+
+        /// <summary>
+        /// Calculates the greatest common divisor of the fraction and returns the fraction fully simplified.
+        /// </summary>
+        /// <returns>The fraction fully simplified.</returns>
+        public Fraction Simplify()
+        {
+            var gcd = FindGreatestCommonFactor(Numerator, Denominator);
+            var numerator = Numerator / gcd;
+            var denominator = Denominator / gcd;
+
+            return new Fraction(numerator, denominator);
+        }
+
+        public decimal ToDecimal()
+        {
+            return Numerator / (decimal)Denominator;
+        }
 
         /// <summary>
         /// The string representation of a fraction.
@@ -129,6 +211,31 @@ namespace DailyChallengesLib.Math
         private static Fraction SubtractFraction(int aNumerator, int bNumerator, int commonDenominator)
         {
             return new Fraction(aNumerator - bNumerator, commonDenominator);
+        }
+
+        /// <summary>
+        /// Compares that two fractions are equal to each other.
+        /// Two fractions are equal to each other if they evaluate to the same number
+        /// </summary>
+        /// <example>Example: 2 / 4 == 1 / 2</example>
+        /// <param name="other">The other fraction to compare too.</param>
+        /// <returns>True if the fractions are equal; otherwise, false.</returns>
+        public bool Equals(Fraction other)
+        {
+            return other.ToDecimal() == ToDecimal();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is null)
+                return false;
+
+            return obj is Fraction fraction && Equals(fraction);
+        }
+
+        public override int GetHashCode()
+        {
+            return unchecked(Denominator.GetHashCode() * 397) ^ Numerator.GetHashCode();
         }
     }
 }
