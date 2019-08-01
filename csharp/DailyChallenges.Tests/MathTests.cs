@@ -260,6 +260,17 @@ namespace DailyChallenges.Tests
             Assert.Equal(expectedFraction, result);
         }
 
+        [Fact]
+        public void CanGetReciprocalFormOfFraction()
+        {
+            var fraction = new Fraction(1, 2);
+            var expected = new Fraction(2, 1);
+
+            var result = fraction.Reciprocal();
+
+            Assert.Equal(expected, result);
+        }
+
         private int SumOfWholeNumbers(int index)
         {
             return index;

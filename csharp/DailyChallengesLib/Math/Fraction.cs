@@ -171,7 +171,7 @@ namespace DailyChallengesLib.Math
         public int Denominator { get; }
 
         /// <summary>
-        /// The approximated value of a fraction as a decimal.
+        /// The approximated value of a fraction.
         /// </summary>
         public double ApproximatedValue => Numerator / Denominator;
 
@@ -186,6 +186,20 @@ namespace DailyChallengesLib.Math
             var denominator = Denominator / gcd;
 
             return new Fraction(numerator, denominator);
+        }
+
+        /// <summary>
+        /// Gets the reciprocal form of this fraction.
+        /// </summary>
+        /// <returns>A new fraction in  the reciprocal form.</returns>
+        public Fraction Reciprocal()
+        {
+            return new Fraction(Denominator, Numerator);
+        }
+
+        public double ToDouble()
+        {
+            return ApproximatedValue;
         }
 
         public decimal ToDecimal()
