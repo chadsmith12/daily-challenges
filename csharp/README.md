@@ -6,6 +6,7 @@ These are the daily challenges solved using C#. All of the challenges that are d
 3. [Vowel Counter](https://dev.to/thepracticaldev/daily-challenge-3-vowel-counter-34ni)
 4. [Checkbook Balancing](https://dev.to/thepracticaldev/daily-challenge-4-checkbook-balancing-hei)
 5. [Walk Generator](https://dev.to/thepracticaldev/daily-challenge-5-ten-minute-walk-1188)
+8. [Scrabble Word Calculator](https://dev.to/thepracticaldev/daily-challenge-8-scrabble-word-calculator-41f6)
 
 ## How Challenges Broken Up
 There will be one solution with at least one class library that will hold the different functions for the challenges. There will also be a XUnit Test project that will provide the Unit Tests for the solutions.

@@ -19,5 +19,6 @@
     <Folder Include="WalkGenerator\" />
     <Folder Include="RandomExtensions\" />
     <Folder Include="Math\" />
+    <Folder Include="ScrabbleCalculator\" />
   </ItemGroup>
 </Project>
